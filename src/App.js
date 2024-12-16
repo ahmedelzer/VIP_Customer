@@ -3,6 +3,8 @@ import ComingSoon from "./component/ComingSoon";
 import Header from "./component/Header/Header";
 import Home from "./pages/Home";
 import SignUP from "./pages/SignUP";
+import { useContext, useEffect } from "react";
+import { LanguageContext } from "./context/Language";
 
 const Layout = () => {
   return (
@@ -28,6 +30,11 @@ const router = createBrowserRouter([
   },
 ]);
 function App() {
+  const { localization, Right } = useContext(LanguageContext);
+  useEffect(() => {
+    window.document.dir = Right ? "rtl" : "ltr";
+    document.title = localization.appInfo.title;
+  }, [Right]);
   return (
     // <>
     <RouterProvider router={router} />
