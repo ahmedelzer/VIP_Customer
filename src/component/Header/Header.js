@@ -26,13 +26,15 @@ function Header() {
           </Link>
         </div>
         <div className={headerStyles.logoWrapper}>
-          <Link to="/">
-            <img
+          <Link to="/signup">
+            {/* <img
               src={localization.userPanel.avatarUrl}
               className="w-10 h-10 rounded-lg mx-2"
               alt="User Avatar"
-            />
+            /> */}
+            <UserPanel useTheme={true} />
           </Link>
+          <LanguageSelector className="mx-2" />
         </div>
       </div>
     </header>

@@ -64,13 +64,13 @@ const BranchesByLocationMap = ({ branches, person }) => {
             color={"red"}
           >
             <Popup>
-              <div className={staffStyles.cardContainer} key={person.PersonID}>
+              <div className={staffStyles.cardContainer} key={branch.PersonID}>
                 <div className={staffStyles.card}>
                   <div className={staffStyles.imageWrapper}>
                     <div className={staffStyles.imageInner}>
                       <img
                         src={
-                          person.ProfileImage ||
+                          branch.ProfileImage ||
                           "https://via.placeholder.com/50"
                         }
                         className={staffStyles.image}
@@ -80,15 +80,15 @@ const BranchesByLocationMap = ({ branches, person }) => {
                           objectFit: "cover", // Ensure proper scaling
                           borderRadius: "50%", // Fallback for rounded style
                         }}
-                        alt={`${person.FirstName} ${person.LastName}`}
+                        alt={`${branch.FirstName} ${branch.LastName}`}
                       />
                     </div>
                   </div>
                   <div className={staffStyles.content}>
                     <h5 className={staffStyles.name}>
-                      {person.FirstName + " " + person.LastName}
+                      {branch.FirstName + " " + branch.LastName}
                     </h5>
-                    <p className={staffStyles.role}>{person.MemberTypeName}</p>
+                    <p className={staffStyles.role}>{branch.MemberTypeName}</p>
                     <ul className={staffStyles.socialIcons}>
                       <a href="#!" className={staffStyles.icon}>
                         <svg

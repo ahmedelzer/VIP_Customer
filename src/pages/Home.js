@@ -1,6 +1,7 @@
 import BranchesByLocationMap from "../component/BranchesByLocationMap";
 import logo from "../assets/logoHum.png";
 import Header from "../component/Header/Header";
+import PartnerSection from "../component/PartnerSection";
 function Home() {
   const branches = [
     {
@@ -11,6 +12,18 @@ function Home() {
       Address: "123 Business St., Silicon Valley, CA",
       LocationLatitudePoint: "37.7749",
       LocationLongitudePoint: "-122.4194",
+      OrganizationDepartmentID: "a1d3c2f9-bd3b-4c7e-8e23-45b9c6e1d1a2",
+      MemberTypeID: "f4e2a1c8-7b3f-4b2e-9d8a-98b7f6e5d3c9",
+      PersonID: "c3b5e8d4-a6b3-4f7e-9d12-5b2e9f8d3c2b",
+      ProfileImage: logo,
+      StaffMemberID: "c1a7f7d5-8fbb-4f6d-91c8-7292bcf1b44b",
+      FirstName: "John",
+      LastName: "Doe",
+      Birthdate: "1985-04-23T00:00:00",
+      Gender: 1,
+      MemberTypeName: "Software Engineer",
+      OrganizationDepartmentName: "Engineering",
+      OrganizationDepartmentDegree: 5,
       CompanyBranchContacts: [
         {
           CompanyBranchContactID: "b8d6c3a4-e92f-4b73-b1b2-c4f4b07805a0",
@@ -38,6 +51,18 @@ function Home() {
       Address: "456 Innovation Ave., San Francisco, CA",
       LocationLatitudePoint: "37.7749",
       LocationLongitudePoint: "-12.4195",
+      OrganizationDepartmentID: "a1d3c2f9-bd3b-4c7e-8e23-45b9c6e1d1a2",
+      MemberTypeID: "f4e2a1c8-7b3f-4b2e-9d8a-98b7f6e5d3c9",
+      PersonID: "c3b5e8d4-a6b3-4f7e-9d12-5b2e9f8d3c2b",
+      ProfileImage: logo,
+      StaffMemberID: "c1a7f7d5-8fbb-4f6d-91c8-7292bcf1b44b",
+      FirstName: "John",
+      LastName: "Doe",
+      Birthdate: "1985-04-23T00:00:00",
+      Gender: 1,
+      MemberTypeName: "Software Engineer",
+      OrganizationDepartmentName: "Engineering",
+      OrganizationDepartmentDegree: 5,
       CompanyBranchContacts: [
         {
           CompanyBranchContactID: "b8d6c3a4-e92f-4b73-b1b2-c4f4b07805a0",
@@ -73,10 +98,12 @@ function Home() {
     OrganizationDepartmentName: "Engineering",
     OrganizationDepartmentDegree: 5,
   };
+  //todo i merge the person with branches to make each branch have  a different prosonality
   return (
     // <div>
-    <div className="card w-full md:w-1/2 p-1 bg-body z-0 text-center mx-auto">
+    <div className="card w-full md:w-1/2 p-1 !bg-body z-0 text-center mx-auto">
       <Header />
+      <PartnerSection partners={branches} />
       <BranchesByLocationMap branches={branches} person={person} />
     </div>
     // </div>

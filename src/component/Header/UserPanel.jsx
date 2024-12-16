@@ -15,9 +15,9 @@ function UserPanel({ useTheme = true }) {
   function toggleDropdown() {
     setDropdownOpen(!dropdownOpen);
   }
-  if (!isSigh) {
-    return <></>;
-  }
+  // if (!isSigh) {
+  //   return <></>;
+  // }
   return (
     <Dropdown
       isOpen={dropdownOpen}
@@ -33,9 +33,11 @@ function UserPanel({ useTheme = true }) {
           className="w-10 h-10 rounded-lg mx-2"
           alt="User Avatar"
         />
-        <p className="font-bold text-md">
-          {personalInfo.firstName + " " + personalInfo.lastName}
-        </p>
+        {personalInfo.firstName && (
+          <p className="font-bold text-md text-text">
+            {personalInfo.firstName + " " + personalInfo.lastName}
+          </p>
+        )}
       </DropdownToggle>
       <DropdownMenu className={`${useTheme ? "text-center !bg-text" : ""}`}>
         <div className="flex flex-col">

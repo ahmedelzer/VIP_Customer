@@ -2,6 +2,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import ComingSoon from "./component/ComingSoon";
 import Header from "./component/Header/Header";
 import Home from "./pages/Home";
+import SignUP from "./pages/SignUP";
 
 const Layout = () => {
   return (
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { path: "/", element: <Home /> },
+      { path: "/signup", element: <SignUP /> },
       // { path: "*", element: <NotFound404 /> },
     ],
   },
