@@ -5,13 +5,14 @@ import Home from "./pages/Home";
 import SignUP from "./pages/SignUP";
 import { useContext, useEffect } from "react";
 import { LanguageContext } from "./context/Language";
+import Footer from "./component/Footer/Footer";
 
 const Layout = () => {
   return (
     <main>
-      {/* <Header /> */}
+      <Header />
       <Outlet />
-      {/* <Footer /> */}
+      <Footer />
     </main>
   );
 };
@@ -21,12 +22,15 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/signup", element: <SignUP /> },
+
       // { path: "*", element: <NotFound404 /> },
     ],
   },
   {
-    children: [{ path: "/soon", element: <ComingSoon /> }],
+    children: [
+      { path: "/soon", element: <ComingSoon /> },
+      { path: "/signup", element: <SignUP /> },
+    ],
   },
 ]);
 function App() {

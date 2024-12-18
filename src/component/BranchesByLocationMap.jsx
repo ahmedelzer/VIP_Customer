@@ -35,7 +35,7 @@ const BranchesByLocationMap = ({ branches, person }) => {
   };
 
   return (
-    <div style={{ flexGrow: 1 }}>
+    <div style={{ flexGrow: 1 }} className="flex-1">
       <MapContainer
         center={
           branches.length > 0

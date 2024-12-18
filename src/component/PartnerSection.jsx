@@ -1,16 +1,21 @@
 import React from "react";
-import { headerStyles } from "./Header/style";
+import { partnerStyles } from "./Header/style";
+// import { partnerStyles } from "./PartnerSection/style";
 
 function PartnerSection({ partners }) {
   return (
-    <div className="flex flex-row">
-      {partners.map((partner) => (
-        <img
-          src={partner.ProfileImage}
-          className={headerStyles.logoImage + " mx-2"}
-          alt="Logo"
-        />
-      ))}
+    <div className={partnerStyles.container}>
+      <div className={partnerStyles.partnersWrapper}>
+        {partners.map((partner) => (
+          <div className={partnerStyles.partnerItem} key={partner.CompanyID}>
+            <img
+              src={partner.ProfileImage}
+              alt="Partner Logo"
+              className={partnerStyles.logoImage}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

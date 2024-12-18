@@ -101,8 +101,7 @@ function Home() {
   //todo i merge the person with branches to make each branch have  a different prosonality
   return (
     // <div>
-    <div className="card w-full md:w-1/2 p-1 !bg-body z-0 text-center mx-auto">
-      <Header />
+    <div className="card w-full container !bg-body z-0 text-center mx-auto">
       <PartnerSection partners={branches} />
       <BranchesByLocationMap branches={branches} person={person} />
     </div>

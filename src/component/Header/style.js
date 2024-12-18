@@ -17,6 +17,14 @@ export const headerStyles = {
       open ? "right-0" : "-right-full"
     } fixed top-0 bottom-0 z-30 w-full h-screen transition-all duration-200`,
 };
+export const partnerStyles = {
+  container: "w-full container mx-auto py-10", // Padding and centered container
+  partnersWrapper: "flex flex-wrap justify-center gap-8", // Responsive grid layout
+  partnerItem: "transition-transform duration-300 hover:scale-105", // Hover effect for scaling
+  logoImage:
+    "w-24 h-24 object-contain shadow-lg rounded-full border border-gray-200 p-2 transition-all", // Modern logo styling
+};
+
 export const categoryNavMobileStyles = {
   container: "w-full h-full bg-card p-8",
   closeButtonWrapper: "flex justify-end mb-8 cursor-pointer",
