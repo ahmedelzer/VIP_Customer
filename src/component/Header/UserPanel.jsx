@@ -7,6 +7,7 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
+import { RiVipLine } from "react-icons/ri";
 function UserPanel({ useTheme = true }) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { localization } = useContext(LanguageContext);
@@ -18,6 +19,9 @@ function UserPanel({ useTheme = true }) {
   // if (!isSigh) {
   //   return <></>;
   // }
+  console.log("====================================");
+  console.log();
+  console.log("====================================");
   return (
     <Dropdown
       isOpen={dropdownOpen}
@@ -28,10 +32,9 @@ function UserPanel({ useTheme = true }) {
         tag="div"
         className="mx-2 flex items-center cursor-pointer"
       >
-        <img
-          src={localization.userPanel.avatarUrl}
-          className="w-10 h-10 rounded-lg mx-2"
-          alt="User Avatar"
+        <RiVipLine
+          size={40}
+          className="text-text border p-2 rounded-lg !border-text mx-2"
         />
         {personalInfo.firstName && (
           <p className="font-bold text-md text-text">
@@ -39,28 +42,6 @@ function UserPanel({ useTheme = true }) {
           </p>
         )}
       </DropdownToggle>
-      <DropdownMenu className={`${useTheme ? "text-center !bg-text" : ""}`}>
-        <div className="flex flex-col">
-          <button
-            className={`${
-              useTheme
-                ? "!text-primary p-2 hover:bg-body transition-all duration-300"
-                : ""
-            }`}
-          >
-            {localization.userPanel.switchAccount}
-          </button>
-          <button
-            className={`${
-              useTheme
-                ? "!text-primary p-2 hover:bg-body transition-all duration-300"
-                : ""
-            }`}
-          >
-            {localization.userPanel.logout}
-          </button>
-        </div>
-      </DropdownMenu>
     </Dropdown>
   );
 }

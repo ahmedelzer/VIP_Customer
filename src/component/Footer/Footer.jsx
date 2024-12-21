@@ -9,67 +9,33 @@ import {
 } from "react-icons/fa6";
 import { ContactContext } from "../../context/Contact";
 import { LanguageContext } from "../../context/Language";
+import { TbWorldWww } from "react-icons/tb";
+import CompanySocialMedia from "../../Schemas/CompanySocialMedia.json";
+import { GetIconContact } from "../GetIconContact";
+import Logo from "../../assets/logoHum.png";
+import { headerStyles } from "../Header/style";
+import { Link } from "react-router-dom";
 
 function Footer() {
   const { localization } = useContext(LanguageContext);
   const { branches, masterBranch } = useContext(ContactContext);
 
   return (
-    <footer class="bg-zinc-50 mt-7 text-center text-surface/75 dark:bg-neutral-700 dark:text-white/75 lg:text-left">
+    <footer class="mt-7 text-center text-surface/75  !bg-primary lg:text-left">
       <div class="container">
-        <div className="flex items-center justify-center border-b-2 border-neutral-200 py-6 dark:border-white/10 lg:justify-between">
-          <div className="me-12 hidden lg:block">
-            <span>Get connected with us on social networks:</span>
-          </div>
+        <div className="flex items-center justify-center border-b-2 border-neutral-200 py-6 dark:border-white/10">
           <div className="flex justify-center">
-            <a
-              href="https://www.facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="me-6 [&>svg]:h-6 [&>svg]:w-6"
-            >
-              <FaFacebook />
-            </a>
-            <a
-              href="https://www.instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="me-6 [&>svg]:h-6 [&>svg]:w-6"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              href="https://www.linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="me-6 [&>svg]:h-6 [&>svg]:w-6"
-            >
-              <FaLinkedin />
-            </a>
-            <a
-              href="https://www.tiktok.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="me-6 [&>svg]:h-6 [&>svg]:w-6"
-            >
-              <FaTiktok />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="me-6 [&>svg]:h-6 [&>svg]:w-6"
-            >
-              <FaTwitter />
-            </a>
-            <a
-              href="https://www.youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="me-6 [&>svg]:h-6 [&>svg]:w-6"
-            >
-              <FaYoutube />
-            </a>
+            {CompanySocialMedia.map((item) => (
+              <a
+                href={item.link}
+                key={item.id}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="me-6 [&>svg]:h-6 [&>svg]:w-6"
+              >
+                {GetIconContact(item.iconType, 20)}
+              </a>
+            ))}
           </div>
         </div>
 
@@ -77,22 +43,9 @@ function Footer() {
           <div class="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div class="">
               <h6 class="mb-4 flex items-center justify-center font-semibold uppercase md:justify-start">
-                <span class="me-3 [&>svg]:h-4 [&>svg]:w-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M12.378 1.602a.75.75 0 00-.756 0L3 6.632l9 5.25 9-5.25-8.622-5.03zM21.75 7.93l-9 5.25v9l8.628-5.032a.75.75 0 00.372-.648V7.93zM11.25 22.18v-9l-9-5.25v8.57a.75.75 0 00.372.648l8.628 5.033z" />
-                  </svg>
-                </span>
-                IHS Company
+                {localization.VIP_customer.companyName}
               </h6>
-              <p>
-                Here you can use rows and columns to organize your footer
-                content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit.
-              </p>
+              <p>{localization.VIP_customer.companyDescription}</p>
             </div>
             <div>
               <h6 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">
@@ -195,7 +148,7 @@ function Footer() {
         </div>
         <div class="bg-black/5 p-6 text-center">
           <span>© 2024 Copyright:</span>
-          <a class="font-semibold" href="https://tw-elements.com/">
+          <a class="font-semibold" href="/">
             IHS Logo
           </a>
         </div>

@@ -2,6 +2,8 @@ import BranchesByLocationMap from "../component/BranchesByLocationMap";
 import logo from "../assets/logoHum.png";
 import Header from "../component/Header/Header";
 import PartnerSection from "../component/PartnerSection";
+import { staffStyles } from "../component/styles";
+import Staff from "../component/Staff";
 function Home() {
   const branches = [
     {
@@ -101,9 +103,10 @@ function Home() {
   //todo i merge the person with branches to make each branch have  a different prosonality
   return (
     // <div>
-    <div className="card w-full container !bg-body z-0 text-center mx-auto">
+    <div className="w-full container !bg-body z-0 text-center mx-auto">
       <PartnerSection partners={branches} />
       <BranchesByLocationMap branches={branches} person={person} />
+      <Staff />
     </div>
     // </div>
   );

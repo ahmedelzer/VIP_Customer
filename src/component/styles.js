@@ -126,13 +126,13 @@ export const staffStyles = {
   imageInner: "flex justify-center -mt-[75px]",
   image: "mx-auto rounded-full shadow-lg dark:shadow-black/20 w-[50px]",
   content: "p-6",
-  name: "mb-4 text-lg font-bold text-accent",
-  role: "mb-6 text-text",
+  name: "mb-4 text-lg font-bold text-text",
+  role: "mb-6 !text-primary",
   socialIcons: "mx-auto flex list-inside justify-center",
   icon: "px-2",
-  iconSvg: "h-4 w-4 dark:!text-primary-400",
-  iconSvgPrimary: "h-4 w-4 !text-primary dark:!text-primary-400",
-  iconSvgSm: "h-3.5 w-3.5 !text-primary",
+  iconSvg: "h-4 w-4 text-text",
+  iconSvgPrimary: "h-4 w-4 text-text",
+  iconSvgSm: "h-3.5 w-3.5 text-text",
 };
 export const serviceStyles = {
   container: "w-full container m-auto",

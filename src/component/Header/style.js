@@ -18,11 +18,11 @@ export const headerStyles = {
     } fixed top-0 bottom-0 z-30 w-full h-screen transition-all duration-200`,
 };
 export const partnerStyles = {
-  container: "w-full container mx-auto py-10", // Padding and centered container
-  partnersWrapper: "flex flex-wrap justify-center gap-8", // Responsive grid layout
+  container: "w-full py-10", // Padding and centered container
+  partnersWrapper: "flex flex-wrap gap-8 max-h-[calc(8rem*3)] overflow-y-auto", // 3-row max height with vertical scroll
   partnerItem: "transition-transform duration-300 hover:scale-105", // Hover effect for scaling
   logoImage:
-    "w-24 h-24 object-contain shadow-lg rounded-full border border-gray-200 p-2 transition-all", // Modern logo styling
+    "w-24 h-24 object-contain rounded-full border !border-primary p-2 transition-all", // Modern logo styling
 };
 
 export const categoryNavMobileStyles = {
@@ -38,7 +38,7 @@ export const languageSelectorStyles = {
   label: "sr-only",
   relative: "relative",
   select:
-    "appearance-none cursor-pointer block w-full bg-none bg-card border border-transparent rounded-md py-2 pl-3 pr-10 text-base text-text focus:outline-none focus:ring-text focus:border-text sm:text-sm",
+    "appearance-none cursor-pointer block w-full bg-none bg-card border border-transparent rounded-md py-2 pl-3 pr-10 text-base text-text focus:outline-none focus:ring-text focus:border-text sm:text-sm !border-text",
   option: "cursor-pointer",
   svgContainer:
     "pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center",

@@ -19,10 +19,13 @@ module.exports = {
     },
     extend: {
       colors: {
-        body: "#111111",
-        primary: "#FF8C42",
+        body: "#1a1a1a",
+        primary: "#000000",
+        secondary: "#000000",
         card: "#2B2B2B",
-        text: "#FFFFFF",
+        text: "#ffb703",
+        secondText: "#ffb703",
+        triedText: "#ffb703",
         accent: {
           DEFAULT: "#FF6700",
           hover: "#FF4500",

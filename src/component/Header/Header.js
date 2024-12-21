@@ -7,8 +7,9 @@ import { CartContext, LanguageContext } from "../../context/Language";
 import LanguageSelector from "./LanguageSelector";
 import { headerStyles } from "./style";
 import UserPanel from "./UserPanel";
+import { SighModel } from "./SighModel";
 function Header() {
-  const [open, setOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const [selectedPage, setSelectedPage] = useState(window.location.pathname);
   const { localization } = useContext(LanguageContext);
   console.log("====================================");
@@ -18,7 +19,7 @@ function Header() {
     setSelectedPage(e.target.title);
   }
   return (
-    <div className="bg-neutral-700 ">
+    <div className="!bg-primary ">
       <header className={headerStyles.container}>
         <div className={headerStyles.headerWrapper}>
           <div className={headerStyles.logoWrapper}>
@@ -27,18 +28,19 @@ function Header() {
             </Link>
           </div>
           <div className={headerStyles.logoWrapper}>
-            <Link to="/signup">
+            <button to="/signup" onClick={() => setModalOpen(true)}>
               {/* <img
               src={localization.userPanel.avatarUrl}
               className="w-10 h-10 rounded-lg mx-2"
               alt="User Avatar"
             /> */}
               <UserPanel useTheme={true} />
-            </Link>
+            </button>
             <LanguageSelector className="mx-2" />
           </div>
         </div>
       </header>
+      <SighModel modalOpen={modalOpen} setModalOpen={setModalOpen} />
     </div>
   );
 }

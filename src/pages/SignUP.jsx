@@ -40,7 +40,6 @@ function SignUP() {
 
         setMargeRow({ ...margeRow, ...request.data, ...formJson });
         setPersonalInfo({ ...personalInfo, ...request.data, ...formJson });
-
         // Navigate to the home page on successful request
         navigate("/");
       }

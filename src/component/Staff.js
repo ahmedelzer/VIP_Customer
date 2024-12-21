@@ -64,13 +64,6 @@ function Staff() {
   return (
     <div className={staffStyles.container}>
       <section className={staffStyles.section}>
-        <h2 className={staffStyles.heading}>
-          {localization.about.staff.meetThe}{" "}
-          <u className={staffStyles.accentText}>
-            {localization.about.staff.team}
-          </u>
-        </h2>
-
         <div className={staffStyles.grid}>
           {stuff.map((person) => (
             <div className={staffStyles.cardContainer} key={person.PersonID}>

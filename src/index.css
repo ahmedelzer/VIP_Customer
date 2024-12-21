@@ -26,6 +26,9 @@
   .btn-accent {
     @apply bg-accent hover:bg-accent-hover transition-all;
   }
+  .pop {
+    @apply bg-transparent text-accent hover:bg-accent-hover hover:text-black;
+  }
   .input {
     @apply h-[50px] rounded-[8px] w-full outline-none px-6 !text-primary;
   }

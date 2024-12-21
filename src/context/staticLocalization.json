@@ -260,5 +260,9 @@
     "avatarUrl": "https://static.vecteezy.com/system/resources/thumbnails/020/765/399/small_2x/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg",
     "logout": "Logout",
     "switchAccount": "Switch Account"
+  },
+  "VIP_customer": {
+    "companyName": "IHS",
+    "companyDescription": "Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
   }
 }
