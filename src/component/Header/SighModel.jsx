@@ -43,13 +43,13 @@ export const SighModel = ({ modalOpen, setModalOpen }) => {
         LoginFormSchema.projectProxyRoute
       );
       if (request && request.success === true) {
-        setResult(request);
-
         setMargeRow({ ...margeRow, ...request.data, ...formJson });
         setPersonalInfo({ ...personalInfo, ...request.data, ...formJson });
         setModalOpen(false);
         // Navigate to the home page on successful request
         // navigate("/");
+      } else {
+        setResult(request);
       }
     } catch (error) {
       console.error("API call failed:", error);

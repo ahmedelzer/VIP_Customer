@@ -25,7 +25,6 @@ export default async function APIHandling(url, methodType, sendBody, query) {
     redirect: "follow",
   };
   if (methodType !== "Get") requestOptions = { ...requestOptions, body: raw };
-  console.log(requestOptions);
   try {
     const response = await fetch(urlRoute, requestOptions);
     const result = await response.json();

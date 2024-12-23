@@ -7,9 +7,6 @@ import avoidColsTypes from "./avoidColsTypes.json";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 function FormContainer({ tableSchema, row, errorResult, returnRow }) {
-  console.log("====================================");
-  console.log(errorResult);
-  console.log("====================================");
   const actionField = tableSchema?.dashboardFormSchemaParameters?.find(
     (e) => e.isEnable
   ).parameterField;

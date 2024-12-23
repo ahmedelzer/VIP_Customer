@@ -19,9 +19,6 @@ function UserPanel({ useTheme = true }) {
   // if (!isSigh) {
   //   return <></>;
   // }
-  console.log("====================================");
-  console.log();
-  console.log("====================================");
   return (
     <Dropdown
       isOpen={dropdownOpen}

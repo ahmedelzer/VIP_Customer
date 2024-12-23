@@ -19,16 +19,16 @@ module.exports = {
     },
     extend: {
       colors: {
-        body: "#1a1a1a",
-        primary: "#000000",
-        secondary: "#000000",
-        card: "#2B2B2B",
-        text: "#ffb703",
-        secondText: "#ffb703",
-        triedText: "#ffb703",
+        body: "var(--body)",
+        text: "var(--text)",
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        card: "var(--card)",
+        secondText: "var(--secondText)",
+        triedText: "var(--triedText)",
         accent: {
-          DEFAULT: "#FF6700",
-          hover: "#FF4500",
+          DEFAULT: "var(--accent)",
+          hover: "var(--accent-hover)",
         },
       },
       // colors: {
@@ -58,5 +58,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };

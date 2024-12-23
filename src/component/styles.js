@@ -164,7 +164,7 @@ export const notFoundStyles = {
   container: "container flex flex-col items-center",
   content: "flex flex-col gap-6 max-w-md text-center",
   title: "font-extrabold text-9xl",
-  message: "text-2xl md:text-3xl !text-primary",
+  message: "text-2xl md:text-3xl !text-text",
   button: "px-8 py-4 btn btn-accent",
 };
 export const comingSoonStyles = {

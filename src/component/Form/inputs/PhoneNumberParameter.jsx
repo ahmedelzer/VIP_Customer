@@ -20,9 +20,6 @@ function PhoneNumberParameter({
   ...props
 }) {
   const { Right } = useContext(LanguageContext);
-  console.log("====================================");
-  console.log(value == "+201067921420"); //can you set the selectedCode +20 and set input value 1067921420
-  console.log("====================================");
 
   const [selectedCode, setSelectedCode] = useState(countryCodes[0].code);
   const [phoneNumber, setPhoneNumber] = useState("");

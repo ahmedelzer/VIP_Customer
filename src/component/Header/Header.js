@@ -8,13 +8,11 @@ import LanguageSelector from "./LanguageSelector";
 import { headerStyles } from "./style";
 import UserPanel from "./UserPanel";
 import { SighModel } from "./SighModel";
+import Theme from "./Theme";
 function Header() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedPage, setSelectedPage] = useState(window.location.pathname);
   const { localization } = useContext(LanguageContext);
-  console.log("====================================");
-  console.log(localization.userPanel.avatarUrl);
-  console.log("====================================");
   function ChangePage(e) {
     setSelectedPage(e.target.title);
   }
@@ -36,6 +34,7 @@ function Header() {
             /> */}
               <UserPanel useTheme={true} />
             </button>
+            <Theme />
             <LanguageSelector className="mx-2" />
           </div>
         </div>

@@ -10,10 +10,6 @@ function SelectParameter({
   displayField,
   ...props
 }) {
-  console.log("====================================");
-  console.log(returnField, displayField);
-  console.log("====================================");
-
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };

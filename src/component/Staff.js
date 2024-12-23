@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { staffStyles } from "./styles";
 import { LanguageContext } from "../context/Language";
+import logo from "../assets/logoHum.png";
 function Staff() {
   const { localization } = useContext(LanguageContext);
   const stuff = [
@@ -8,7 +9,7 @@ function Staff() {
       OrganizationDepartmentID: "a1d3c2f9-bd3b-4c7e-8e23-45b9c6e1d1a2",
       MemberTypeID: "f4e2a1c8-7b3f-4b2e-9d8a-98b7f6e5d3c9",
       PersonID: "c3b5e8d4-a6b3-4f7e-9d12-5b2e9f8d3c2b",
-      ProfileImage: "https://example.com/images/staff/john_doe.jpg",
+      ProfileImage: logo,
       StaffMemberID: "c1a7f7d5-8fbb-4f6d-91c8-7292bcf1b44b",
       FirstName: "John",
       LastName: "Doe",
@@ -67,16 +68,21 @@ function Staff() {
         <div className={staffStyles.grid}>
           {stuff.map((person) => (
             <div className={staffStyles.cardContainer} key={person.PersonID}>
-              <div className={staffStyles.card}>
-                <div className={staffStyles.imageWrapper}>
-                  <div className={staffStyles.imageInner}>
-                    <img
-                      src={person.ProfileImage}
-                      className={staffStyles.image}
-                      alt={person.FirstName + " " + person.LastName}
-                    />
-                  </div>
+              <div
+                className={"flex flex-row justify-evenly " + staffStyles.card}
+              >
+                <div className={"flex justify-center items-center"}>
+                  {/* <div className={staffStyles.imageInner}> */}
+                  <img
+                    src={person.ProfileImage}
+                    className={
+                      staffStyles.image +
+                      " rounded-lg justify-center items-center"
+                    }
+                    alt={person.FirstName + " " + person.LastName}
+                  />
                 </div>
+                {/* </div> */}
                 <div className={staffStyles.content}>
                   <h5 className={staffStyles.name}>
                     {person.FirstName + " " + person.LastName}

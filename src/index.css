@@ -1,12 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* :root {
-  --main-color: #1d1f23;
-  --main-color-text: white;
-  --text-color: #f6cd46;
-  --text-hover-color: #e1b72e;
-} */
+:root {
+  --body: #1a1a1a;
+  --text: #ffb703;
+  --primary: #000000;
+  --secondary: #000000;
+  --card: #2b2b2b;
+  --secondText: #ffb703;
+  --triedText: #ffb703;
+  --accent: #ff6700;
+  --accent-hover: #ff4500;
+}
 @layer base {
   body {
     @apply font-primary bg-body !text-text;

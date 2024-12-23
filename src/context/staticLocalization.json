@@ -262,7 +262,28 @@
     "switchAccount": "Switch Account"
   },
   "VIP_customer": {
-    "companyName": "IHS",
-    "companyDescription": "Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    "footer": {
+      "copyRight": "© 2024 Copyright:",
+      "columns": [
+        {
+          "title": "Services",
+          "items": [
+            { "title": "Angular", "link": "" },
+            { "title": "React", "link": "" },
+            { "title": "Vue", "link": "" },
+            { "title": "Laravel", "link": "" }
+          ]
+        }
+      ],
+      "ContactColumn": {
+        "title": "Contact",
+        "items": [
+          { "title": "New York, NY 10012, US", "link": "", "typeIcon": "home" },
+          { "title": "info@example.com", "link": "", "typeIcon": "postOffice" },
+          { "title": "+ 01 234 567 88", "link": "", "typeIcon": "phone" },
+          { "title": "+ 01 234 567 89", "link": "", "typeIcon": "phone" }
+        ]
+      }
+    }
   }
 }

@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   MapContainer,
   TileLayer,
   Marker,
   Popup,
   useMapEvents,
+  useMap,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { staffStyles } from "./styles";
-
+import { MdLocationSearching } from "react-icons/md";
+import { MdMyLocation } from "react-icons/md";
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:
@@ -18,38 +20,87 @@ L.Icon.Default.mergeOptions({
   shadowUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
 });
 
-const BranchesByLocationMap = ({ branches, person }) => {
-  const [selectedBranch, setSelectedBranch] = useState(branches[0]);
-  const handleMapClick = (e, branch) => {
-    setSelectedBranch(branch);
-  };
+const BranchesByLocationMap = ({
+  branches,
+  userLocation,
+  nearestBranch,
+  selectedLocation,
+  setSelectedLocation,
+}) => {
+  const AdjustMapView = ({ userLocation, nearestBranch }) => {
+    const map = useMap();
 
-  const MapClickHandler = () => {
-    useMapEvents({
-      click(e) {
-        // Disabled this functionality for unchangeable markers
-      },
-    });
+    useEffect(() => {
+      if (userLocation && nearestBranch) {
+        const bounds = L.latLngBounds([
+          userLocation,
+          [
+            parseFloat(nearestBranch.LocationLatitudePoint),
+            parseFloat(nearestBranch.LocationLongitudePoint),
+          ],
+        ]);
+        map.fitBounds(bounds, { padding: [50, 50] });
+      }
+    }, [userLocation, nearestBranch, map]);
+
     return null;
   };
-
+  const handleMapClick = (e, branch) => {
+    // setSelectedLocation(branch);
+  };
+  const selectedBranch =
+    selectedLocation !== null ? selectedLocation : userLocation;
   return (
-    <div style={{ flexGrow: 1 }} className="flex-1">
+    <div style={{ position: "relative", height: "400px", width: "100%" }}>
+      {/* Get My Location Button */}
+      <button
+        onClick={() => setSelectedLocation(null)}
+        style={{
+          position: "absolute",
+          bottom: "10px",
+          right: "10px",
+          zIndex: 1000,
+          width: "40px",
+          height: "40px",
+          borderRadius: "50%",
+          backgroundColor: "#ffffff",
+          boxShadow: "0 2px 5px rgba(0,0,0,0.3)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          border: "none",
+          cursor: "pointer",
+        }}
+        className="bg-"
+      >
+        {selectedBranch === selectedLocation ? (
+          <MdLocationSearching size={20} />
+        ) : (
+          <MdMyLocation size={20} />
+        )}
+      </button>
+
       <MapContainer
-        center={
-          branches.length > 0
-            ? [
-                +branches[0].LocationLatitudePoint,
-                +branches[0].LocationLongitudePoint,
-              ]
-            : [30.032957707631663, 31.2599301782983]
-        }
-        zoom={3}
+        center={userLocation}
+        zoom={13}
         style={{ height: "400px", width: "100%" }}
         attributionControl={false}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <MapClickHandler />
+        <AdjustMapView
+          userLocation={userLocation}
+          nearestBranch={nearestBranch}
+        />
+        {/* User Location */}
+        <Marker
+          position={userLocation}
+          icon={L.icon({
+            iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
+            iconSize: [30, 30],
+          })}
+        >
+          <Popup>You are here!</Popup>
+        </Marker>
         {branches.map((branch) => (
           <CustomMarker
             key={branch.CompanyBranchID}
@@ -64,6 +115,19 @@ const BranchesByLocationMap = ({ branches, person }) => {
             handleMapClick={handleMapClick}
           />
         ))}
+        {nearestBranch && (
+          <CustomMarker
+            branch={nearestBranch}
+            img={
+              nearestBranch.ProfileImage
+              // <CustomImage
+              //   img={branch.ProfileImage || "https://via.placeholder.com/50"}
+              //   upperImage={branch.ProfileImage}
+              // />
+            }
+            handleMapClick={handleMapClick}
+          />
+        )}
       </MapContainer>
     </div>
   );
@@ -112,7 +176,10 @@ const CustomMarker = ({ branch, img, handleMapClick }) => {
 
   return (
     <Marker
-      position={[+branch.LocationLatitudePoint, +branch.LocationLongitudePoint]}
+      position={[
+        parseFloat(+branch.LocationLatitudePoint),
+        parseFloat(+branch.LocationLongitudePoint),
+      ]}
       eventHandlers={{
         click: (e) => handleMapClick(e, branch),
       }}
