@@ -19,7 +19,8 @@ L.Icon.Default.mergeOptions({
   iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
   shadowUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
 });
-
+import { SiGooglemaps } from "react-icons/si";
+import { GetIconContact } from "./GetIconContact";
 const BranchesByLocationMap = ({
   branches,
   userLocation,
@@ -50,6 +51,38 @@ const BranchesByLocationMap = ({
   };
   const selectedBranch =
     selectedLocation !== null ? selectedLocation : userLocation;
+  const groupedBranches = branches.reduce((acc, branch) => {
+    const key = `${branch.LocationLatitudePoint},${branch.LocationLongitudePoint}`;
+    if (!acc[key]) acc[key] = [];
+    acc[key].push(branch);
+    return acc;
+  }, {});
+  const handleLocationClick = (latitude, longitude) => {
+    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
+    const appleMapsUrl = `http://maps.apple.com/?ll=${latitude},${longitude}`;
+
+    // Check if the `navigator.share` API is supported (for mobile)
+    if (navigator.share) {
+      navigator
+        .share({
+          title: "Open Location",
+          text: "Choose an app to view this location:",
+          url: googleMapsUrl,
+        })
+        .catch((error) => console.error("Error sharing location:", error));
+    } else {
+      // Fallback: Prompt user for app choice
+      const userChoice = window.confirm(
+        "Open in Google Maps? Cancel to use Apple Maps."
+      );
+
+      if (userChoice) {
+        window.open(googleMapsUrl, "_blank");
+      } else {
+        window.open(appleMapsUrl, "_blank");
+      }
+    }
+  };
   return (
     <div style={{ position: "relative", height: "400px", width: "100%" }}>
       {/* Get My Location Button */}
@@ -101,7 +134,21 @@ const BranchesByLocationMap = ({
         >
           <Popup>You are here!</Popup>
         </Marker>
-        {branches.map((branch) => (
+        {Object.values(groupedBranches).map((group, index) => {
+          return group.map((branch, i) => {
+            const angle = i * 15; // Adjust angle to avoid overlap
+            return (
+              <CustomMarker
+                key={branch.CompanyBranchID}
+                branch={branch}
+                img={branch.ProfileImage || "https://via.placeholder.com/50"}
+                handleMapClick={handleMapClick}
+                angle={angle} // Pass angle to adjust icon rotation
+              />
+            );
+          });
+        })}
+        {/* {branches.map((branch) => (
           <CustomMarker
             key={branch.CompanyBranchID}
             branch={branch}
@@ -114,7 +161,7 @@ const BranchesByLocationMap = ({
             }
             handleMapClick={handleMapClick}
           />
-        ))}
+        ))} */}
         {nearestBranch && (
           <CustomMarker
             branch={nearestBranch}
@@ -125,7 +172,7 @@ const BranchesByLocationMap = ({
               //   upperImage={branch.ProfileImage}
               // />
             }
-            handleMapClick={handleMapClick}
+            handleMapClick={handleLocationClick}
           />
         )}
       </MapContainer>
@@ -166,14 +213,28 @@ const CustomImage = ({ img, upperImage }) => {
   );
 };
 
-const CustomMarker = ({ branch, img, handleMapClick }) => {
-  const customIcon = new L.Icon({
-    iconUrl: img,
-    iconSize: [50, 50], // Adjust width and height
-    iconAnchor: [25, 50], // Adjust anchor point
+const CustomMarker = ({ branch, img, handleMapClick, angle }) => {
+  // const customIcon = new L.Icon({
+  //   iconUrl: img,
+  //   iconSize: [50, 50], // Adjust width and height
+  //   iconAnchor: [25, 50], // Adjust anchor point
+  //   popupAnchor: [0, -50],
+  // });
+  const customIcon = L.divIcon({
+    html: `
+      <div class="w-[30px] h-[30px] p-0.5 flex items-center justify-center border border-card !bg-primary overflow-hidden rounded-full opacity-50"
+        style="transform: rotate(${angle}deg);">
+        <img 
+          src="${img}" 
+          alt="Marker" 
+          style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" />
+      </div>
+    `,
+    className: "", // No default leaflet class
+    iconSize: [30, 30],
+    iconAnchor: [25, 50],
     popupAnchor: [0, -50],
-  });
-
+  }); //!localization
   return (
     <Marker
       position={[
@@ -181,36 +242,62 @@ const CustomMarker = ({ branch, img, handleMapClick }) => {
         parseFloat(+branch.LocationLongitudePoint),
       ]}
       eventHandlers={{
-        click: (e) => handleMapClick(e, branch),
+        click: () =>
+          handleMapClick(
+            branch.LocationLatitudePoint,
+            branch.LocationLongitudePoint
+          ),
       }}
       icon={customIcon} // Apply the custom icon here
     >
       <Popup>
         <div className={staffStyles.cardContainer} key={branch.PersonID}>
           <div className={staffStyles.card}>
-            <div className={staffStyles.imageWrapper}>
-              <div className={staffStyles.imageInner}>
-                <img
-                  src={branch.ProfileImage || "https://via.placeholder.com/50"}
-                  className={staffStyles.image}
-                  style={{
-                    width: "50px",
-                    height: "50px",
-                    objectFit: "cover", // Ensure proper scaling
-                    borderRadius: "50%", // Fallback for rounded style
-                  }}
-                  alt={`${branch.FirstName} ${branch.LastName}`}
-                />
-              </div>
+            <div className={staffStyles.imageWrapper + " mt-2"}>
+              {/* <div className={staffStyles.imageInner}> */}
+              {/* </div> */}
             </div>
             <div className={staffStyles.content}>
-              <h5 className={staffStyles.name}>
-                {branch.FirstName + " " + branch.LastName}
+              <img
+                src={img || "https://via.placeholder.com/50"}
+                className={staffStyles.image}
+                style={{
+                  width: "50px",
+                  height: "50px",
+                  objectFit: "cover", // Ensure proper scaling
+                  borderRadius: "50%", // Fallback for rounded style
+                }}
+                alt={`${branch.CompanyName}`}
+              />
+              <h5 className={staffStyles.name + " text-center"}>
+                {branch.CompanyName}
               </h5>
-              <p className={staffStyles.role}>{branch.MemberTypeName}</p>
-              <ul className={staffStyles.socialIcons}>
+              <ul className={staffStyles.socialIcons + " my-1"}>
+                {branch.CompanyBranchContacts.map((contact) => (
+                  <a
+                    href={contact.link}
+                    key={contact.id}
+                    className={staffStyles.icon + " !text-text"}
+                  >
+                    {GetIconContact(contact.iconType, 20)}
+                  </a>
+                ))}
                 {/* Social media icons go here */}
               </ul>
+              <button
+                onClick={() =>
+                  window.open(
+                    `https://www.google.com/maps/search/?api=1&query=${branch.LocationLatitudePoint},${branch.LocationLongitudePoint}`,
+                    "_blank"
+                  )
+                }
+                className="!capitalize"
+              >
+                <SiGooglemaps
+                  size={30}
+                  className="text-text text-center mt-2"
+                />
+              </button>
             </div>
           </div>
         </div>
@@ -218,5 +305,4 @@ const CustomMarker = ({ branch, img, handleMapClick }) => {
     </Marker>
   );
 };
-
 export default BranchesByLocationMap;

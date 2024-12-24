@@ -19,9 +19,9 @@ export const headerStyles = {
 };
 export const partnerStyles = {
   container: "w-full py-10", // Padding and centered container
-  partnersWrapper: `flex flex-wrap gap-8 max-h-[calc(8rem*3)] overflow-y-auto 
-    scrollbar-thin scrollbar-thumb-primary scrollbar-track-body hover:scrollbar-thumb-body`, // Custom scrollbar styling
-  partnerItem: "transition-transform duration-300 hover:scale-105", // Hover effect for scaling
+  partnersWrapper: `flex flex-wrap gap-8 max-h-[calc(8rem*3)] `, // Custom scrollbar styling
+  partnerItem:
+    "transition-transform duration-300 hover:scale-105 cursor-pointer", // Hover effect for scaling
   logoImage:
     "w-24 h-24 object-contain rounded-full border !border-primary p-2 transition-all", // Modern logo styling
 };

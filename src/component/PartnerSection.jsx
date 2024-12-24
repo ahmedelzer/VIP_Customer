@@ -5,7 +5,7 @@ import { partnerStyles } from "./Header/style";
 function PartnerSection({ partners, setSelectedLocation }) {
   return (
     <div className={partnerStyles.container}>
-      <div className="border p-3 !border-primary rounded-lg">
+      <div className="border p-3 !border-primary rounded-lg overflow-y-auto scrollbar-thin scrollbar-thumb-primary scrollbar-track-body hover:scrollbar-thumb-body">
         <div className={partnerStyles.partnersWrapper}>
           {partners.map((partner) => (
             <div
