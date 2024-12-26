@@ -9,7 +9,7 @@ function Footer() {
   const { branches, masterBranch } = useContext(ContactContext);
 
   return (
-    <footer className="mt-7 text-center text-surface/75 !bg-primary lg:text-left">
+    <footer className="mt-7 text-surface/75 !bg-primary">
       <div className="container">
         <div className="flex items-center justify-center border-b-2 border-card py-6">
           <div className="flex justify-center">
@@ -26,10 +26,10 @@ function Footer() {
             ))}
           </div>
         </div>
-        <div className="py-10 text-center md:text-left">
+        <div className="py-10">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2 items-center justify-between">
             {localization.VIP_customer.footer.columns.map((column, index) => (
-              <div className=" md:text-left" key={index}>
+              <div className="md:text-lef" key={index}>
                 <h6 className="mb-4 font-semibold uppercase">{column.title}</h6>
                 {column.items.map((item, index) => (
                   <p className="mb-4" key={index}>
@@ -39,14 +39,14 @@ function Footer() {
               </div>
             ))}
 
-            <div className=" md:text-left">
+            <div className="">
               <h6 className="mb-4 font-semibold uppercase">
                 {localization.VIP_customer.footer.ContactColumn.title}
               </h6>
               {localization.VIP_customer.footer.ContactColumn.items.map(
                 (item, index) => (
                   <p
-                    className="mb-4 flex items-center justify-center md:justify-start"
+                    className="mb-4 flex items-center justify-start"
                     key={index}
                   >
                     <span className="me-3 [&>svg]:h-5 [&>svg]:w-5">

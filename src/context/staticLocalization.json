@@ -284,6 +284,12 @@
           { "title": "+ 01 234 567 89", "link": "", "typeIcon": "phone" }
         ]
       }
+    },
+    "map": {
+      "currentLocation": "You are here!"
+    },
+    "header": {
+      "welcome": "welcome"
     }
   }
 }

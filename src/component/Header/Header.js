@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Logo from "../../assets/logoHum.png";
 import CategoryNavMobile from "./CategoryNavMobile";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 import { CartContext, LanguageContext } from "../../context/Language";
 import LanguageSelector from "./LanguageSelector";
@@ -11,11 +11,17 @@ import { SighModel } from "./SighModel";
 import Theme from "./Theme";
 function Header() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedPage, setSelectedPage] = useState(window.location.pathname);
+  const { name } = useParams();
+  const navigate = useNavigate();
   const { localization } = useContext(LanguageContext);
-  function ChangePage(e) {
-    setSelectedPage(e.target.title);
-  }
+  useEffect(() => {
+    if (name) {
+      const timer = setTimeout(() => {
+        navigate("/"); // Navigate to home after closing modal
+      }, 10000);
+      return () => clearTimeout(timer); // Cleanup timeout on component unmount
+    }
+  }, [name, navigate]);
   return (
     <div className="!bg-primary ">
       <header className={headerStyles.container}>
@@ -24,6 +30,13 @@ function Header() {
             <Link to="/">
               <img src={Logo} className={headerStyles.logoImage} alt="Logo" />
             </Link>
+          </div>
+          <div className={headerStyles.navListWrapper}>
+            {name && (
+              <h2 className="text-xl font-bold text-secondText">
+                {localization.VIP_customer.header.welcome} {name}
+              </h2>
+            )}
           </div>
           <div className={headerStyles.logoWrapper}>
             <button to="/signup" onClick={() => setModalOpen(true)}>

@@ -19,7 +19,7 @@ export default function Theme() {
       root.style.setProperty("--primary", "#000000");
       root.style.setProperty("--secondary", "#000000");
       root.style.setProperty("--card", "#2b2b2b");
-      root.style.setProperty("--secondText", "#ffb703");
+      root.style.setProperty("--secondText", "#fff");
       root.style.setProperty("--triedText", "#ffb703");
       root.style.setProperty("--accent", "#ff6700");
       root.style.setProperty("--accent-hover", "#ff4500");

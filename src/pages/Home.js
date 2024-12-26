@@ -3,11 +3,8 @@ import BranchesByLocationMap from "../component/BranchesByLocationMap";
 import logo from "../assets/logoHum.png";
 import PartnerSection from "../component/PartnerSection";
 import Staff from "../component/Staff";
-import { useParams } from "react-router-dom";
 
 function Home() {
-  const { name } = useParams();
-
   const branches = [
     {
       CompanyID: 1,
@@ -18,7 +15,7 @@ function Home() {
       LocationLatitudePoint: "28.106472",
       LocationLongitudePoint: "30.751160",
       ProfileImage:
-        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/1.jpg",
+        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/16.jpg",
       CompanyBranchContacts: [
         {
           id: 0,
@@ -38,7 +35,7 @@ function Home() {
       LocationLatitudePoint: "28.206472",
       LocationLongitudePoint: "30.851160",
       ProfileImage:
-        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/1.png",
+        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/4.jpg",
       CompanyBranchContacts: [
         {
           id: 0,
@@ -58,7 +55,7 @@ function Home() {
       LocationLatitudePoint: "28.107107",
       LocationLongitudePoint: "30.751278",
       ProfileImage:
-        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/1.png",
+        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/11.jpg",
       CompanyBranchContacts: [
         {
           id: 0,
@@ -78,7 +75,7 @@ function Home() {
       LocationLatitudePoint: "28.106472",
       LocationLongitudePoint: "30.751160",
       ProfileImage:
-        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/1.png",
+        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/10.jpg",
       CompanyBranchContacts: [
         {
           id: 0,
@@ -98,7 +95,7 @@ function Home() {
       LocationLatitudePoint: "28.108326",
       LocationLongitudePoint: "30.750847",
       ProfileImage:
-        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/1.png",
+        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/17.jpg",
       CompanyBranchContacts: [
         {
           id: 0,
@@ -118,7 +115,7 @@ function Home() {
       LocationLatitudePoint: "28.106683",
       LocationLongitudePoint: "30.751288",
       ProfileImage:
-        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/1.png",
+        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/7.jpg",
       CompanyBranchContacts: [
         {
           id: 0,
@@ -138,7 +135,7 @@ function Home() {
       LocationLatitudePoint: "28.0977924",
       LocationLongitudePoint: "30.756335",
       ProfileImage:
-        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/1.png",
+        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/6.jpg",
       CompanyBranchContacts: [
         {
           id: 0,
@@ -158,7 +155,7 @@ function Home() {
       LocationLatitudePoint: "28.116472",
       LocationLongitudePoint: "30.751160",
       ProfileImage:
-        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/1.png",
+        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/5.jpg",
       CompanyBranchContacts: [
         {
           id: 0,
@@ -178,7 +175,7 @@ function Home() {
       LocationLatitudePoint: "28.108327",
       LocationLongitudePoint: "30.750847",
       ProfileImage:
-        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/1.png",
+        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/12.jpg",
       CompanyBranchContacts: [
         {
           id: 0,
@@ -198,7 +195,7 @@ function Home() {
       LocationLatitudePoint: "28.106144",
       LocationLongitudePoint: "30.750559",
       ProfileImage:
-        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/1.png",
+        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/13.jpg",
       CompanyBranchContacts: [
         {
           id: 0,
@@ -218,7 +215,7 @@ function Home() {
       LocationLatitudePoint: "28.106684",
       LocationLongitudePoint: "30.751288",
       ProfileImage:
-        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/1.png",
+        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/8.jpg",
       CompanyBranchContacts: [
         {
           id: 0,
@@ -238,7 +235,7 @@ function Home() {
       LocationLatitudePoint: "28.095963",
       LocationLongitudePoint: "30.757969",
       ProfileImage:
-        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/1.png",
+        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/1.jpg",
       CompanyBranchContacts: [
         {
           id: 0,
@@ -258,7 +255,7 @@ function Home() {
       LocationLatitudePoint: "28.096413",
       LocationLongitudePoint: "30.758642",
       ProfileImage:
-        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/1.png",
+        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/2.jpg",
       CompanyBranchContacts: [
         {
           id: 0,
@@ -278,7 +275,7 @@ function Home() {
       LocationLatitudePoint: "28.095963",
       LocationLongitudePoint: "30.757969",
       ProfileImage:
-        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/1.png",
+        "https://maingatewayapi.ihs-solutions.com:8000/BrandingMart/archivingFiles/3.jpg",
       CompanyBranchContacts: [
         {
           id: 0,
@@ -336,10 +333,6 @@ function Home() {
 
   console.log(adjustedBranches);
 
-  console.log("====================================");
-  console.log(name, "name");
-  console.log("====================================");
-
   const [userLocation, setUserLocation] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [nearestBranch, setNearestBranch] = useState(null);
@@ -371,14 +364,11 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    if (selectedLocation) {
-      const [lat, lon] = selectedLocation;
-      calculateNearestBranch(lat, lon);
-    } else if (userLocation) {
+    if (userLocation) {
       const [lat, lon] = userLocation;
       calculateNearestBranch(lat, lon);
     }
-  }, [selectedLocation, userLocation]);
+  }, [userLocation]);
 
   const calculateNearestBranch = (lat, lon) => {
     const nearest = branches.reduce((closest, branch, index) => {

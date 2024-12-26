@@ -35,4 +35,4 @@ things need to do in all pages and components
 2-extract the styles and choose the colors we will use in all pages //Done
 3-localization //Done
 4-remove files and libraries do not needed //Done
-//make change location and button to return to init view
+/////////////////////

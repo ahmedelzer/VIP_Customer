@@ -7,6 +7,7 @@ import { useContext, useEffect } from "react";
 import { LanguageContext } from "./context/Language";
 import Footer from "./component/Footer/Footer";
 import NotFound404 from "./component/NotFound404";
+import ModalName from "./component/ModalName";
 
 const Layout = () => {
   return (

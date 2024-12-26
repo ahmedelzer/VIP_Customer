@@ -19,7 +19,7 @@ export const headerStyles = {
 };
 export const partnerStyles = {
   container: "w-full py-10", // Padding and centered container
-  partnersWrapper: `flex flex-wrap gap-8 max-h-[calc(8rem*3)] `, // Custom scrollbar styling
+  partnersWrapper: `flex flex-wrap gap-8 max-h-[calc(8rem*3)] justify-center lg:justify-start`, // Custom scrollbar styling
   partnerItem:
     "transition-transform duration-300 hover:scale-105 cursor-pointer", // Hover effect for scaling
   logoImage:

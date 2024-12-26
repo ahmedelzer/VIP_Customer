@@ -1,5 +1,6 @@
 import React from "react";
 import { partnerStyles } from "./Header/style";
+import { onMarkerClick } from "../utils/onMarkerClick";
 // import { partnerStyles } from "./PartnerSection/style";
 
 function PartnerSection({ partners, setSelectedLocation }) {
@@ -9,19 +10,18 @@ function PartnerSection({ partners, setSelectedLocation }) {
         <div className={partnerStyles.partnersWrapper}>
           {partners.map((partner) => (
             <div
-              className={partnerStyles.partnerItem}
               key={partner.CompanyID}
-              onClick={() =>
-                setSelectedLocation([
-                  partner.LocationLatitudePoint,
-                  partner.LocationLongitudePoint,
-                ])
+              className={partnerStyles.partnerItem}
+              onClick={
+                () => setSelectedLocation(partner)
+                // onMarkerClick(map, partner)
               }
             >
               <img
                 src={partner.ProfileImage}
                 alt="Partner Logo"
                 className={partnerStyles.logoImage}
+                loading="lazy"
               />
             </div>
           ))}
